@@ -1,5 +1,5 @@
 {
-  "name": "rmmz-typescript-plugin-archetype",
+  "name": "gemstone-engine",
   "version": "1.0.0",
   "description": "RPG Maker MZ Typescript Plugin Archetype",
   "namespace": "Comuns.Typescript.Archetype",
@@ -10,9 +10,9 @@
     "coverage": "nyc -r lcov -e .ts -x \"spec/*\" npm run test"
   },
   "keywords": [
-    "RMMZ"
+    "RMMZ", "utility", "core"
   ],
-  "author": "Comuns",
+  "author": "Nio Kasgami",
   "license": "Zlib",
   "devDependencies": {
     "@comuns-rpgmaker/plugin-metadata": "^0.2.2",
