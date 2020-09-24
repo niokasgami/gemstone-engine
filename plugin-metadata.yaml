@@ -1,8 +1,59 @@
 target: MZ
-author: Comuns
-description: Typescript plugin archetype
-help: |-  
-    Typescript Plugin Archetype.
+author: Nio Kasgami
+description: The MZ core engine who power all the Gem-engines. Also provide many utility dev tools.
 
-    This is a plugin archetype, it does not provide any functionality, only a
-    template for other plugins.
+params:
+  - name: atlas
+    struct: AtlasStruct[]
+    text: Textures atlas
+    description: The Atlas texture to load.
+
+help: |-  
+
+
+    ParamManager :
+    In Typescript it's impossible to do this :
+    let parameters = parameters || {};
+
+    without throwing an error or having to suppress the typing for the variables.
+    So gemstone engine offers a way to fetch data by using :
+
+    Gemstone.ParamManager.register("myPluginName",parametervariable);
+    Gemstone.ParamManager.fetch("myPluginName",parametervariable);
+
+    It also offers a 'safe' way of storing variable without bleeding it out in the global spaces.
+    Which allow to avoid nameclashing with other params.
+
+    -----------------------------------
+    Texture Atlas Manager [Experimental]
+    // WARNING : feature not implemented.
+    The texture loader for Gemstone. It allows to load a Atlas sprite via a JSON.
+    Atlas sprite are a group of sprite packed into one big file using a Spriter packer such as :
+    https://www.codeandweb.com/texturepacker
+    It allow to reduce the loading time and the number of draw calls that MZ have to do when loading sprites.
+    It allow the game to load and run smoother. It also permit to free memories allocation.
+    https://en.wikipedia.org/wiki/Texture_atlas
+
+     is usage is simple. Just load the pictures into the atlas and load them via :
+
+     const references = AtlasManager.fetch("filename")
+     this._sprite = new Sprite(references
+
+
+
+
+structs:
+    - name: AtlasStruct
+      params:
+          - name: data
+            text: Data
+            description: The atlas data to load.
+            type: string
+          - name: filename
+            text: Filename
+            description: The filename to load.
+            type: file
+            dir: img/
+
+
+
